@@ -1,15 +1,22 @@
+
+
+$(".door").click(function(){
+  $("#living-room").hide();
+})
+
+const gamePlay = newGame ({
+  state: "login", 
+  transitions:{
+    room1: {},
+    room2: {},
+
+  }
+
+})
+
+let state = {};
+
 // create an object for each room
-
-const livingRoom {
-    
-}
-
-
-
-
-
-
-
 
 
 
