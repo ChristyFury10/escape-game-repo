@@ -26,14 +26,13 @@ body {
 #top-text #title, #top-text h2{
     margin: 0px;
 }
-.room {
+#room {
     position: relative;
     height: 500px;
     width: 750px;
     border: 2px solid white;
     margin-left: auto;
     margin-right: auto;
-    background-size: contain;
 }
 
 .inventory-bar{
@@ -53,7 +52,9 @@ body {
 #welcome-screen{
     text-align: center;
     background-color: black;
-    z-index: ;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 200px;
     
 }
 #enterButton{
@@ -70,9 +71,26 @@ body {
 .atrium-door{
     position: absolute;
 }
-.invItem{
-    height: 25px;
+.living-room-key{
+    position: absolute;
+    top: 40px
 }
+.living-room-door{
+    position: absolute;
+}
+.inventory-bar{
+    display: flex;
+    align-items: center;
+}
+#inventory-items{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
+li{
+    width: 25px;
+}
+
 .hide{
     display: none;
 }
@@ -126,14 +144,23 @@ body {
     border: 2px solid white;
 } */
 /* Create classes for each room */
-.study{
-    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/19515d73-46c8-4fa0-9b8a-93f485fdd8ea/d1wvvij-4d25ed0c-3e70-4ccc-a866-3b56443e431c.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE5NTE1ZDczLTQ2YzgtNGZhMC05YjhhLTkzZjQ4NWZkZDhlYVwvZDF3dnZpai00ZDI1ZWQwYy0zZTcwLTRjY2MtYTg2Ni0zYjU2NDQzZTQzMWMuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.wRRrJz3kFuH8HDzwCZgjakEm4WWEa_F9LupdmmhonAc");
-    background-size: cover;
+.front-of-house{
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/dda3ab08-e8d7-4309-9cff-f44697356233/d2cn0ei-e66c048b-4d96-424b-a156-ad5772a8234d.jpg/v1/fill/w_900,h_676,q_75,strp/haunted_house_background_4_by_indigodeep_d2cn0ei-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Njc2IiwicGF0aCI6IlwvZlwvZGRhM2FiMDgtZThkNy00MzA5LTljZmYtZjQ0Njk3MzU2MjMzXC9kMmNuMGVpLWU2NmMwNDhiLTRkOTYtNDI0Yi1hMTU2LWFkNTc3MmE4MjM0ZC5qcGciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.UO-_4ZC5p2kQZUyA0jK3uEu-ONj_I_eq02xqHjiBgtQ");
+    background-position: center;
+}
+
+.atrium{
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a90a9efb-b711-47bc-992b-a1f692155232/d3a7w2t-a7b51051-f5d5-40b8-81f8-6848d2b0ab86.png/v1/fill/w_800,h_640,strp/strange_hallway_with_doors_by_madetobeunique_d3a7w2t-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjQwIiwicGF0aCI6IlwvZlwvYTkwYTllZmItYjcxMS00N2JjLTk5MmItYTFmNjkyMTU1MjMyXC9kM2E3dzJ0LWE3YjUxMDUxLWY1ZDUtNDBiOC04MWY4LTY4NDhkMmIwYWI4Ni5wbmciLCJ3aWR0aCI6Ijw9ODAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.DcOnlD3BloKq2IrtGycY6VdA1gYPfXVFIT_24so3N1A");
+    background-position: center;
 }
 
 .living-room{
     background-image:url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e2a83fa4-9d6c-4e5b-8970-440489a08563/d2sm45s-a3bc2587-003a-406f-afa8-609de1610729.jpg/v1/fill/w_900,h_507,q_75,strp/living_room_by_adamrichards_d2sm45s-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTA3IiwicGF0aCI6IlwvZlwvZTJhODNmYTQtOWQ2Yy00ZTViLTg5NzAtNDQwNDg5YTA4NTYzXC9kMnNtNDVzLWEzYmMyNTg3LTAwM2EtNDA2Zi1hZmE4LTYwOWRlMTYxMDcyOS5qcGciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.-eq0fhLxAI3hiTgCRUNs3mK-C9VkURbeTUYWG5btSAE");
     background-size: cover;
-    background-position: center;
     
+}
+.study{
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/19515d73-46c8-4fa0-9b8a-93f485fdd8ea/d1wvvij-4d25ed0c-3e70-4ccc-a866-3b56443e431c.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE5NTE1ZDczLTQ2YzgtNGZhMC05YjhhLTkzZjQ4NWZkZDhlYVwvZDF3dnZpai00ZDI1ZWQwYy0zZTcwLTRjY2MtYTg2Ni0zYjU2NDQzZTQzMWMuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.wRRrJz3kFuH8HDzwCZgjakEm4WWEa_F9LupdmmhonAc");
+    background-size: cover;
+
 }
