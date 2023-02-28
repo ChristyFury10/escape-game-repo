@@ -5,6 +5,9 @@ const $inventoryBar = $(".inventory-bar")
 const $inventoryItems = $("#inventory-items")
 const $inventoryItem = $("li")
 const $currentRoom = $("#room")
+const $atriumKey = $(".key")
+const $door = $(".exit-door")
+
 
 let livingRoomBackground = 
 
@@ -12,53 +15,46 @@ let livingRoomBackground =
 $("#enterButton").on("click", function(evt){
   console.log("you have entered the house");
   $("#welcome-screen").addClass("hide");
+  toAtrium();
+
   //gameStart();
 })
 
-// // start new game with 
-// function gameStart(){
-//   console.log('New game started');
-//   //new NewGame();  
-// }
+//functions to change rooms
+const toAtrium = function() {
+  console.log("entered atrium");
+  $("#room").removeClass("front-of-house").addClass("atrium");
+  $(".key").removeClass("hide").addClass("atrium-key");
+  $(".exit-door").removeClass("hide").addClass("atrium-door");
+}
 
 // room change functions
 const toLivingRoom = function(){
   //hide all atrium elements and show all living room elements
   $currentRoom.addClass("living-room");
   console.log("now in living room");
+  $("#room").removeClass("atrium").addClass("living-room");
+  $(".key").removeClass("hide").addClass("living-room-key");
+  $(".exit-door").removeClass("hide").addClass("liiving-room-door");
   }
   
-  // clicking book"key" inliving room
-  $(".living-room-key").click(function(evt){
-    console.log("you found a book")
-    let $newItem = $("<li>book</li>")
-    $inventoryItems.append($newItem);
-    $newItem.addClass("invItem");
-    $(".living-room-key").addClass("hide")
-  })
-
-
-
-
-// click event for atroum key, hide key on screen and add to inventory box and array, then call fucntion to start next room
-$(".atrium-key").click(function(evt){
+// click event for atrium key, hide key on screen and add to inventory box and array, then call fucntion to start next room
+$atriumKey.on("click", function(evt){
   console.log("clicked key");
   inventoryItems.push("key");
   let $newItem = $("<li>key</li>")
   $inventoryItems.append($newItem);
   $newItem.addClass("invItem");
-  $(".atrium-key").addClass("hide");
-  
-
+  $atriumKey.addClass("hide");
   console.log(inventoryItems)
 })
 
 //door locked unless key is in inventory array
-$(".atrium-door").click(function(evt){
+$(".exit-door").click(function(evt){
   console.log("clicked door");
   if (inventoryItems.includes("key")){
     console.log("door unclocked");
-    $(".atrium-door").addClass("hide");
+    $(".exit-door").addClass("hide");
     toLivingRoom();
 
   }
@@ -68,11 +64,57 @@ $(".atrium-door").click(function(evt){
   }
 });
 
+ 
+
+
+  // clicking book"key" inliving room
+  $(".living-room-key").click(function(evt){
+    console.log("you found a book")
+    inventoryItems.push("book");
+    let $newItem = $("<li>book</li>")
+    $inventoryItems.append($newItem);
+    $newItem.addClass("invItem");
+    $(".living-room-key").addClass("hide")
+  })
+  
+  $(".living-room-door").click(function(evt){
+    if (inventoryItems.includes("book")){
+      console.log("bookshekf revealed a hallway");
+      $(".living-room-door").addClass("hide");
+      }
+    else {
+      console.log("this bookshelf sems to be missing something")
+    }
+  })
+
+
+
+
+// show border on hover over key or door
+$(".key").hover(
+  function() {
+    $(this).addClass("hover");
+  }, function() {
+    $(this).removeClass("hover");
+  }
+);
+$(".exit-door").hover(
+  function() {
+    $(this).addClass("hover");
+  }, function() {
+    $(this).removeClass("hover");
+  }
+);
 
 // $(".atrium-door").on("click", funcion(){
 
 // })
 
+// // start new game with 
+// function gameStart(){
+//   console.log('New game started');
+//   //new NewGame();  
+// }
 
 
 // create object with each room and contents
