@@ -45,12 +45,37 @@ body {
     background-color: black;
 }
 
-.object-hover{
+.hover{
     border: 3px solid yellow;
     position: absolute;
     background-size: contain;
 }
-
+#welcome-screen{
+    text-align: center;
+    background-color: black;
+    z-index: ;
+    
+}
+#enterButton{
+    color: gray;
+    background-color: darkslateblue;
+}
+.exit-door, .key{
+    position: absolute;
+}
+.atrium-key{
+    position: absolute;
+    top: 20px
+}
+.atrium-door{
+    position: absolute;
+}
+.invItem{
+    height: 25px;
+}
+.hide{
+    display: none;
+}
 /* #message-box{
     border: 2px solid white;
     flex:1;
