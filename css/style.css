@@ -61,6 +61,12 @@ body {
     color: gray;
     background-color: darkslateblue;
 }
+.atrium-key, .living-room-key{
+    position: absolute; 
+}
+.atrium-door, .living-room-door{
+    position: absolute;
+}
 .exit-door, .key{
     position: absolute;
 }

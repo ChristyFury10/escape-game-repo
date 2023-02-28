@@ -1,12 +1,15 @@
 "use strict";
 
+const rooms = ["welcome-screen", "atrium", "living-room"];
 const inventoryItems = [];
 const $inventoryBar = $(".inventory-bar")
 const $inventoryItems = $("#inventory-items")
 const $inventoryItem = $("li")
 const $currentRoom = $("#room")
 const $atriumKey = $(".key")
-const $door = $(".exit-door")
+const $atriumDoor = $(".exit-door")
+const $livingRoomKey = $(".living-room-key")
+const $livingRoomDoor = $(".living-room-door")
 
 
 let livingRoomBackground = 
@@ -24,8 +27,8 @@ $("#enterButton").on("click", function(evt){
 const toAtrium = function() {
   console.log("entered atrium");
   $("#room").removeClass("front-of-house").addClass("atrium");
-  $(".key").removeClass("hide").addClass("atrium-key");
-  $(".exit-door").removeClass("hide").addClass("atrium-door");
+  $atriumKey.removeClass("hide").addClass("atrium-key");
+  $atriumDoor.removeClass("hide").addClass("atrium-door");
 }
 
 // room change functions
@@ -34,8 +37,8 @@ const toLivingRoom = function(){
   $currentRoom.addClass("living-room");
   console.log("now in living room");
   $("#room").removeClass("atrium").addClass("living-room");
-  $(".key").removeClass("hide").addClass("living-room-key");
-  $(".exit-door").removeClass("hide").addClass("liiving-room-door");
+  $livingRoomKey.removeClass("hide");
+  $livingRoomDoor.removeClass("hide");
   }
   
 // click event for atrium key, hide key on screen and add to inventory box and array, then call fucntion to start next room
@@ -50,13 +53,12 @@ $atriumKey.on("click", function(evt){
 })
 
 //door locked unless key is in inventory array
-$(".exit-door").click(function(evt){
+$atriumDoor.click(function(evt){
   console.log("clicked door");
   if (inventoryItems.includes("key")){
     console.log("door unclocked");
     $(".exit-door").addClass("hide");
     toLivingRoom();
-
   }
   else {
     console.log("Hmm seems to be locked");
@@ -64,11 +66,8 @@ $(".exit-door").click(function(evt){
   }
 });
 
- 
-
-
   // clicking book"key" inliving room
-  $(".living-room-key").click(function(evt){
+  $livingRoomKey.click(function(evt){
     console.log("you found a book")
     inventoryItems.push("book");
     let $newItem = $("<li>book</li>")
@@ -77,7 +76,7 @@ $(".exit-door").click(function(evt){
     $(".living-room-key").addClass("hide")
   })
   
-  $(".living-room-door").click(function(evt){
+  $livingRoomDoor.click(function(evt){
     if (inventoryItems.includes("book")){
       console.log("bookshekf revealed a hallway");
       $(".living-room-door").addClass("hide");
@@ -91,20 +90,20 @@ $(".exit-door").click(function(evt){
 
 
 // show border on hover over key or door
-$(".key").hover(
+$(".yellow").hover(
   function() {
     $(this).addClass("hover");
   }, function() {
     $(this).removeClass("hover");
   }
 );
-$(".exit-door").hover(
-  function() {
-    $(this).addClass("hover");
-  }, function() {
-    $(this).removeClass("hover");
-  }
-);
+// $(".exit-door").hover(
+//   function() {
+//     $(this).addClass("hover");
+//   }, function() {
+//     $(this).removeClass("hover");
+//   }
+// );
 
 // $(".atrium-door").on("click", funcion(){
 
