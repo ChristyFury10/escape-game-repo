@@ -18,29 +18,18 @@
         <h3>***display goal upon game start***</h3>
     </div>
     <main>
-        <div id = "message-box">
-            MESSAGES
-            <div id = info>useful info</div>
+        <div id = "room" class = "front-of-house">
+        <div class = "inventory-bar"> inventory
+            <ul id = "inventory-items">
+            </ul>
         </div>
-        <div id = "room" class = "living-room">
-            ROOM
-            <!-- create box for interaction -->
-            <div class = "key">
-            -----
-            </div>
-            <div class = "door">
-            ----------
-            </div>
-            <!-- inventory box -->
-            <div id = "inventory">
-                Inventory:
-            </div>
+        <div class = "key living-room-key">key</div>
+        <div class = "exit-door living-room-door">Door</div>
+        <div id = "welcome-screen">
+            <div id = "welcome-message">Welcome to the abandoned house</div>
+            <button id = "enterButton" >Enter House</button>
         </div>
-        <div id = "placeholder">
-            Placeholder
-        </div>
-
-        <div></div>
+       </div>
     </main>
 </body>
 </html>
