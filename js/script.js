@@ -31,7 +31,6 @@ const toAtrium = function() {
   $atriumDoor.removeClass("hide").addClass("atrium-door");
 }
 
-// room change functions
 const toLivingRoom = function(){
   //hide all atrium elements and show all living room elements
   $currentRoom.addClass("living-room");
@@ -40,6 +39,10 @@ const toLivingRoom = function(){
   $livingRoomKey.removeClass("hide");
   $livingRoomDoor.removeClass("hide");
   }
+
+const success = function(){
+
+}
   
 // click event for atrium key, hide key on screen and add to inventory box and array, then call fucntion to start next room
 $atriumKey.on("click", function(evt){
@@ -80,6 +83,7 @@ $atriumDoor.click(function(evt){
     if (inventoryItems.includes("book")){
       console.log("bookshekf revealed a hallway");
       $(".living-room-door").addClass("hide");
+      success();
       }
     else {
       console.log("this bookshelf sems to be missing something")
@@ -97,17 +101,40 @@ $(".yellow").hover(
     $(this).removeClass("hover");
   }
 );
-// $(".exit-door").hover(
-//   function() {
-//     $(this).addClass("hover");
-//   }, function() {
-//     $(this).removeClass("hover");
-//   }
-// );
 
-// $(".atrium-door").on("click", funcion(){
 
-// })
+// modal trial
+var modal = document.getElementById("success");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close-modal")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+
+
+
+
+
 
 // // start new game with 
 // function gameStart(){

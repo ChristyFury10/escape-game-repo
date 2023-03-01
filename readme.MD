@@ -28,3 +28,5 @@ Pseudocode:
 
 ### Stretch goals
 - As a player, I will be able to enter my name so that the messages will address me by name
+- As a player, I will be able to access more rooms
+- As a player I will be able to go back to a previously visited room
