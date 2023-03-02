@@ -20,7 +20,7 @@
     <main>
         
         <div id = "room" class = "front-of-house">
-        <div class = "inventory-bar"> Inventory:
+        <div class = "inventory-bar hide"> Inventory:
             <ul id = "inventory-items">
             </ul>
         </div>
@@ -29,17 +29,20 @@
         <div class = "living-room-key yellow hide">book</div>
         <div class = "living-room-door yellow hide">bookshelf</div>
         <div id = "welcome-screen">
-            <div id = "welcome-message">Welcome to the abandoned house</div>
+            <div id = "welcome-message">
+                There is an abandoned house in your<br> neighborhood, you have heard crazy rumors<br> over the years about why no one enters. <br>Do you dare to go inside?
+            </div>
             <button id = "enterButton" >Enter House</button>
         </div>
        </div>
+       <!-- turn welcome screen into a modal -->
+
        <!-- modal for success message with button -->
-       <!-- <button id = "myBtn">x</button>
-       <div id="success" class="modal">
+       <div id="success" class="win-modal">
         <div class="win-message">
-          <span class="close-modal">&times;</span>
+          <!-- <span class="close-modal">X</span> -->
           <p>You have escaped!</p>
-        </div> -->
+        </div>
       </div>
     </main>
 </body>
