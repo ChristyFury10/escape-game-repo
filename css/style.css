@@ -75,26 +75,47 @@ body {
 }
 .atrium-key, .living-room-key{
     position: absolute; 
+    ;
+    
 }
-.atrium-door, .living-room-door{
+/* .atrium-door, .living-room-door{
     position: absolute;
 }
 .exit-door, .key{
     position: absolute;
+} */
+.atrium-door{
+    position: absolute;
+    top: 20px;
+    left: 120px;
+    height: 50px;
+    width: 50px;
+    top: 310px;
+    border-radius: 30px;
 }
 .atrium-key{
     position: absolute;
-    top: 20px
-}
-.atrium-door{
-    position: absolute;
+    bottom: 0px;
+    right: 100px;
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
 }
 .living-room-key{
     position: absolute;
-    top: 40px
+    bottom: 95px;
+    right: 5px;
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
 }
 .living-room-door{
     position: absolute;
+    top: 245px;
+    right: 350px;
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
 }
 .inventory-bar{
     display: flex;
