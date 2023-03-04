@@ -149,7 +149,13 @@ $atriumLight.click(function(){
   })
 
   $livingRoomFalseDoor.click(function(){
-    console.log("clicked false door")
+    console.log("clicked false door");
+    if(inventoryItems.includes("book")){
+      toGameOver("Something about this book opened the door, but the door led to a bottomless pit")
+    }
+    else{
+      console.log("This door is unlocked but seems latched closed in another way")
+    }
   })
 
 
