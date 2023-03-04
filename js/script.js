@@ -13,6 +13,10 @@ const $livingRoomDoor = $(".living-room-door")
 const $messaegLine = $("#goal")
 const $atriumLight = $(".atrium-light")
 const $livingRoomFalseDoor = $(".living-room-false-door")
+const $inventoryModal = $("#open-inventory");
+const $overlay = $("#overlay")
+const winModal = document.getElementById("success");
+const $gameOverText = $("#game-over-text");
 
 
 
@@ -50,15 +54,25 @@ const toLivingRoom = function(){
   $livingRoomFalseDoor.removeClass("hide")
   }
 
-  var modal = document.getElementById("success");
-  const success = function() {
-    modal.style.display = "block";
+
+
+  // modals for pop ups 
+const success = function() {
+    winModal.style.display = "block";
+    $gameOverText.text("You Have Escaped!")
   }
+const toGameOver = function(string){
+  console.log(string);
+  winModal.style.display = "block";
+  $gameOverText.text(string)
+}
   
 // open inventory bar on click
 $inventoryBar.click(function(evt){
   console.log("clicked inventory");
-  $inventoryBar.toggleClass("small");
+  // $inventoryBar.toggleClass("small");
+  $inventoryModal.toggleClass("hide");
+  $overlay.toggleClass("hide")
 
 });
 
@@ -66,7 +80,7 @@ $inventoryBar.click(function(evt){
 $atriumKey.on("click", function(evt){
   console.log("clicked key");
   inventoryItems.push("key");
-  let $newItem = $("<li>key</li>")
+  let $newItem = $("<li>&#128477;&#65039;</li>")
   $inventoryItems.append($newItem);
   $newItem.addClass("invItem");
   $atriumKey.addClass("hide");
@@ -92,9 +106,10 @@ $atriumDoor.click(function(evt){
 $atriumLight.click(function(){
   console.log("clicked light");
   if (inventoryItems.includes("key")){
-    console.log("electrocuted");
-    toGameOver();
+    $atriumLight.addClass("hide")
+    toGameOver("Looks like using a key to try and change the lightbulb cuased you get electrocuted, GAME OVER");
   }
+  else console.log("I wonder if this light fixture could be fixed")
 
 })
 
@@ -103,7 +118,7 @@ $atriumLight.click(function(){
     console.log("you found a book");
     $messaegLine.text("You found a book under the couch!")
     inventoryItems.push("book");
-    let $newItem = $("<li>book</li>")
+    let $newItem = $("<li>&#128213;</li>")
     $inventoryItems.append($newItem);
     $newItem.addClass("invItem");
     $(".living-room-key").addClass("hide")
@@ -142,103 +157,3 @@ $(".yellow").hover(
 
 
 
-
-// // start new game with 
-// function gameStart(){
-//   console.log('New game started');
-//   //new NewGame();  
-// }
-
-
-// create object with each room and contents
-
-// const rooms = {
-//   atrium: {
-//     key: "key",
-//     door: "door"
-//   },
-//   livingRoom: {
-//     key: "book",
-//     door: "bookshelf"
-//   }
-// }
-
-
-// $key.click(function(evt){
-//   console.log("clicked key")
-
-// })
-
-// class NewGame {
-//   constructor()
-//   {
-//     this.room = room,
-//     this.inventory = []
-//   }
-  
-  
-// }
-
-
-// const gamePlay = newGame ({
-//   state: "login", 
-//   transitions:{
-//     room1: {},
-//     room2: {},
-
-//   }
-
-// })
-
-// let state = {};
-
-// create an object for each room
-
-
-
-
-
-
-
-
-
-
-
-
-
-// creates game play object
-// class GamePlay {
-//     constructor(name)
-//     {
-//     this.name = name;
-//     this.inventory = [];
-//     }
-
-//     // methods for gameplay
-
-
-// }
-
-// const player = new GamePlay("name");
-
-
-
-
-
-
-
-
-
-/*----- constants -----*/
-
-
-  /*----- state variables -----*/
-
-
-  /*----- cached elements  -----*/
-
-
-  /*----- event listeners -----*/
-
-
-  /*----- functions -----*/

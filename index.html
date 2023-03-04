@@ -20,11 +20,13 @@
     <main>
         
         <div id = "room" class = "front-of-house">
-        <div class = "inventory-bar small hide"> Inventory
-            <ul id = "inventory-items">
-                K B
+        <div class = "inventory-bar small hide"> Inventory</div>
+        <div id = "overlay" class = "hide"></div>
+        <div id = "open-inventory" class = "inventory-modal hide"> Your Inventory:
+            <ul id = "inventory-items" class>
             </ul>
         </div>
+        
         <div class = "key hide yellow"></div>
         <div class = "exit-door hide yellow"></div>
         <div class = "living-room-key yellow hide"></div>
@@ -44,7 +46,7 @@
        <div id="success" class="win-modal">
         <div class="win-message">
           <!-- <span class="close-modal">X</span> -->
-          <p>You have escaped!</p>
+          <p id = "game-over-text">You have escaped!</p>
         </div>
       </div>
     </main>

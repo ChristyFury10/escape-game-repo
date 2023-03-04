@@ -150,8 +150,25 @@ body {
     display: flex;
     list-style: none;
     color: white;
-    gap: 15px;
-    display: none;
+    gap: 55px;
+}
+#open-inventory{
+ background-color: rgba(67, 61, 40, 0.584);
+ color: rgb(18, 15, 2);
+ font-size: 32px;
+ font-weight: 700;
+ text-align: center;
+ width: 350px;
+ height: 200px;
+ margin: auto;
+ margin-top: 150px;
+}
+#overlay{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(67, 61, 40, 0.584);
+    /* display: none; */
+    position: absolute;
 }
 
 
