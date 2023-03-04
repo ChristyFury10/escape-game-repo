@@ -95,11 +95,19 @@ body {
 }
 .atrium-key{
     position: absolute;
-    bottom: 0px;
-    right: 100px;
+    bottom: 35px;
+    right: 60px;
     height: 50px;
     width: 50px;
     border-radius: 30px;
+}
+.atrium-light{
+    position: absolute;
+    top: 55px;
+    right: 85px;
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;      
 }
 .living-room-key{
     position: absolute;
@@ -117,17 +125,37 @@ body {
     width: 50px;
     border-radius: 30px;
 }
+.living-room-false-door{
+    position: absolute;
+    top: 245px;
+    left: 100px;
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
+}
 .inventory-bar{
+    font-size: 22px;
+    word-wrap: normal;
     display: flex;
     align-items: center;
-    width: 200px
+    width: 400px;
+    height: 32px;
+    z-index: 1;
+}
+
+.inventory-bar.small{
+    width: 110px;
 }
 #inventory-items{
     display: flex;
     list-style: none;
     color: white;
-    gap: 15px
+    gap: 15px;
+    display: none;
 }
+
+
+
 li{
     width: 25px;
 }

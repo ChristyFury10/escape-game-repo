@@ -1,7 +1,8 @@
 # escape Game
-
+Weocome to the escape room style game based in an abandoned warehouse. 
 ## How to Play
-- 
+- Once you enter the house you have to search for keys and then find the door that they unlock
+- Be careful not to click on the incorrect object or you might lose the game
 
 ## Wireframes
 
