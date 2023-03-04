@@ -1,6 +1,7 @@
 "use strict";
 
 const rooms = ["welcome-screen", "atrium", "living-room"];
+const $welcomeScreen = $("")
 const inventoryItems = [];
 const $inventoryBar = $(".inventory-bar")
 const $inventoryItems = $("#inventory-items")
@@ -17,6 +18,7 @@ const $inventoryModal = $("#open-inventory");
 const $overlay = $("#overlay")
 const winModal = document.getElementById("success");
 const $gameOverText = $("#game-over-text");
+const $playAgain = $("#play-again");
 
 
 
@@ -55,24 +57,34 @@ const toLivingRoom = function(){
   }
 
 
-
-  // modals for pop ups 
+  // modals for pop ups to WIN or LOSE
 const success = function() {
     winModal.style.display = "block";
     $gameOverText.text("You Have Escaped!")
   }
+const playAgain = function(){
+  inventoryItems = [];
+  
+}
+
+$playAgain.click(function(){
+  console.log("play again");
+  location.reload();
+});
+
 const toGameOver = function(string){
   console.log(string);
   winModal.style.display = "block";
   $gameOverText.text(string)
 }
-  
+ 
 // open inventory bar on click
 $inventoryBar.click(function(evt){
   console.log("clicked inventory");
   // $inventoryBar.toggleClass("small");
   $inventoryModal.toggleClass("hide");
-  $overlay.toggleClass("hide")
+  $overlay.toggleClass("hide");
+
 
 });
 
