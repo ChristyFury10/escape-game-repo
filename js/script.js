@@ -24,24 +24,22 @@ const $timer = $("#timer");
 const $countdown = $("#countdown");
 let timeLeft = 10;
 let playerName;
+const $inventoryName = $("#player-name")
 
 
 //hide welcome screen on click of enter button
 $("#enterButton").on("click", function(evt){
   playerName = $playerName.val();
-  console.log(playerName);
-  console.log("you have entered the house");
   // $("#welcome-screen").addClass("hide");
+  $inventoryName.text(playerName)
   $("#welcome-screen").css("display", "none")
   toAtrium();
-  $messaegLine.text("You entered the house and the front door vanished behind you... now what?"); 
-  
+  $messaegLine.text("Hello " + playerName + ", you entered the house and the front door vanished behind you... now what?"); 
 })
 
 //functions to change rooms
 const toAtrium = function() {
   startTimer(60);
-  console.log("entered atrium");
   $("#room").removeClass("front-of-house").addClass("atrium");
   $atriumKey.removeClass("hide").addClass("atrium-key");
   $atriumDoor.removeClass("hide").addClass("atrium-door");
@@ -86,8 +84,6 @@ const toGameOver = function(string){
  
 // open inventory bar on click
 $inventoryBar.click(function(evt){
-  console.log("clicked inventory");
-  // $inventoryBar.toggleClass("small");
   $inventoryModal.toggleClass("hide");
   $overlay.toggleClass("hide");
 
@@ -125,7 +121,7 @@ $atriumLight.click(function(){
   console.log("clicked light");
   if (inventoryItems.includes("key")){
     $atriumLight.addClass("hide")
-    toGameOver("Looks like using a key to try and change the lightbulb cuased you get electrocuted, GAME OVER" + currentPlayer);
+    toGameOver("Looks like using a key to try and change the lightbulb cuased you get electrocuted, GAME OVER. Adding " + playerName + "to the list...");
   }
   else {
     $messaegLine.text("I wonder if this broken light fixture could be fixed")
@@ -158,7 +154,7 @@ $atriumLight.click(function(){
   $livingRoomFalseDoor.click(function(){
     console.log("clicked false door");
     if(inventoryItems.includes("book")){
-      toGameOver("Something about this book opened the door, but the door led to a bottomless pit")
+      toGameOver("Something about this book opened the door, but the door led to a bottomless pit. Adding " + playerName + "to the list...")
     }
     else{
       $messaegLine.text("This door is unlocked but seems latched closed in another way")
@@ -190,7 +186,7 @@ function startTimer(sec) {
       setTimeout(updateTimer, 1000);
     } 
     else {
-      toGameOver("You took too long and the toxic air was too much for your human lungs");
+      toGameOver("You took too long and the toxic air was too much for your human lungs. Adding " + playerName + "to the list...");
     }
   }
   updateTimer();
