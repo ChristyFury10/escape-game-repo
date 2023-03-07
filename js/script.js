@@ -23,18 +23,19 @@ const $playerName = $(".player-name");
 const $timer = $("#timer");
 const $countdown = $("#countdown");
 let timeLeft = 10;
+let playerName;
+
 
 //hide welcome screen on click of enter button
 $("#enterButton").on("click", function(evt){
+  playerName = $playerName.val();
+  console.log(playerName);
   console.log("you have entered the house");
   // $("#welcome-screen").addClass("hide");
   $("#welcome-screen").css("display", "none")
   toAtrium();
   $messaegLine.text("You entered the house and the front door vanished behind you... now what?"); 
-  let currentPlayer = $playerName.val();
-  console.log(currentPlayer)
-
-  //gameStart();
+  
 })
 
 //functions to change rooms
@@ -124,10 +125,11 @@ $atriumLight.click(function(){
   console.log("clicked light");
   if (inventoryItems.includes("key")){
     $atriumLight.addClass("hide")
-    toGameOver("Looks like using a key to try and change the lightbulb cuased you get electrocuted, GAME OVER");
+    toGameOver("Looks like using a key to try and change the lightbulb cuased you get electrocuted, GAME OVER" + currentPlayer);
   }
-  else console.log("I wonder if this light fixture could be fixed")
-
+  else {
+    $messaegLine.text("I wonder if this broken light fixture could be fixed")
+  }
 })
 
   // clicking book"key" inliving room
@@ -159,7 +161,7 @@ $atriumLight.click(function(){
       toGameOver("Something about this book opened the door, but the door led to a bottomless pit")
     }
     else{
-      console.log("This door is unlocked but seems latched closed in another way")
+      $messaegLine.text("This door is unlocked but seems latched closed in another way")
     }
   })
 
