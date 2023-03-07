@@ -1,6 +1,5 @@
 "use strict";
 
-const rooms = ["welcome-screen", "atrium", "living-room"];
 const $welcomeScreen = $("")
 const inventoryItems = [];
 const $inventoryBar = $(".inventory-bar")
@@ -37,7 +36,7 @@ $("#enterButton").on("click", function(evt){
   $messaegLine.text("Hello " + playerName + ", you entered the house and the front door vanished behind you... now what?"); 
 })
 
-//functions to change rooms
+//function to enter first room after game started
 const toAtrium = function() {
   startTimer(60);
   $("#room").removeClass("front-of-house").addClass("atrium");
@@ -49,6 +48,7 @@ const toAtrium = function() {
 
 }
 
+// funciton to enter and set element of living room
 const toLivingRoom = function(){
   //hide all atrium elements and show all living room elements
   $currentRoom.addClass("living-room");
@@ -60,22 +60,19 @@ const toLivingRoom = function(){
   $livingRoomFalseDoor.removeClass("hide")
   }
 
-
   // modals for pop ups to WIN or LOSE
 const success = function() {
     winModal.style.display = "block";
     $gameOverText.text("You Have Escaped!")
   }
-const playAgain = function(){
-  inventoryItems = [];
-  
-}
 
+//fucntion to reload screen to play again
 $playAgain.click(function(){
   console.log("play again");
   location.reload();
 });
 
+// game over funciton to show game over modal
 const toGameOver = function(string){
   console.log(string);
   winModal.style.display = "block";
@@ -106,29 +103,28 @@ $atriumKey.on("click", function(evt){
 $atriumDoor.click(function(evt){
   console.log("clicked door");
   if (inventoryItems.includes("key")){
-    console.log("door unclocked");
     $(".exit-door").addClass("hide");
     toLivingRoom();
   }
   else {
-    console.log("Hmm seems to be locked");
     $messaegLine.text("Hmm this door seems to be locked")
-    // add message in screen...
+
   }
 });
 
+//game over if light clicked with key in inventory
 $atriumLight.click(function(){
   console.log("clicked light");
   if (inventoryItems.includes("key")){
     $atriumLight.addClass("hide")
-    toGameOver("Looks like using a key to try and change the lightbulb cuased you get electrocuted, GAME OVER. Adding " + playerName + "to the list...");
+    toGameOver("Looks like using a key to try and change the lightbulb cuased you get electrocuted, GAME OVER. Adding " + playerName + " to the list...");
   }
   else {
     $messaegLine.text("I wonder if this broken light fixture could be fixed")
   }
 })
 
-  // clicking book"key" inliving room
+  // clicking book "key" inliving room
   $livingRoomKey.click(function(evt){
     console.log("you found a book");
     $messaegLine.text("You found a book under the couch!")
@@ -139,6 +135,7 @@ $atriumLight.click(function(){
     $(".living-room-key").addClass("hide")
   })
   
+  // bookshelf wins game if book is in inventory
   $livingRoomDoor.click(function(evt){
     if (inventoryItems.includes("book")){
       console.log("bookshekf revealed a hallway");
@@ -151,10 +148,11 @@ $atriumLight.click(function(){
     }
   })
 
+  //game over if door chosen with book in inventory
   $livingRoomFalseDoor.click(function(){
     console.log("clicked false door");
     if(inventoryItems.includes("book")){
-      toGameOver("Something about this book opened the door, but the door led to a bottomless pit. Adding " + playerName + "to the list...")
+      toGameOver("Something about this book opened the door, but the door led to a bottomless pit. Adding " + playerName + " to the list...")
     }
     else{
       $messaegLine.text("This door is unlocked but seems latched closed in another way")
@@ -180,14 +178,46 @@ function startTimer(sec) {
   let timeLeft = sec;
   function updateTimer() {
     if (timeLeft > 0) {
-      // console.log(timeLeft);
       document.querySelector("#countdown").innerHTML = timeLeft
       timeLeft--;
       setTimeout(updateTimer, 1000);
     } 
     else {
-      toGameOver("You took too long and the toxic air was too much for your human lungs. Adding " + playerName + "to the list...");
+      toGameOver("You took too long and the toxic air was too much for your human lungs. Adding " + playerName + " to the list...");
     }
   }
   updateTimer();
 }
+
+
+// ******************************************************** //
+
+//setting up rooms object to allow backward movement to rooms (stretch goal)
+const rooms = {
+  welcomeScreen: {
+  },
+  atrium: {
+    items: {
+      key: "old-key",
+      door: "wooden-door",
+      falseDoor: "lamp"
+    },
+    movemets:{
+      toLivingRoom
+    }
+  },
+  livingRoom: {
+    items: {
+      key: "book",
+      door: "book-shelf",
+      falseDoor: "black-door"
+    },
+    movemets: {
+      toAtrium,
+      toGameOver
+    }
+  }};
+
+  const gameStart = function(){
+    
+  }
