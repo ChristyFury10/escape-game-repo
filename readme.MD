@@ -21,6 +21,17 @@ Game Over Screen:
 Pseudocode:
 <img src = "https://i.imgur.com/0FGYdxK.jpg">
 
+### Gameplay Screenshots
+
+Welcome Screen:
+<img src = "https://i.imgur.com/WnCFIyR.png">
+
+First Room/Atrium:
+<img src = "https://i.imgur.com/XzkRpy8.png">
+
+Inventory: 
+<img src = "https://i.imgur.com/izciEhr.png">
+
 ### MVP
 - As a player, I will be able to click "key" objects to add them to my inventory 
 - As a player, I will be able to click on "doors" that will take me to another room or deny entry based on my inventory 

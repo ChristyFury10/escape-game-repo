@@ -27,6 +27,13 @@ body {
 #top-text #title, #top-text h2{
     margin: 0px;
 }
+#timer{
+    background-color: black;
+    font-weight: 700;
+    font-size: 1.25em;
+    color: darkred;
+    position: absolute;
+}
 #room {
     position: relative;
     height: 500px;
@@ -78,12 +85,6 @@ body {
     ;
     
 }
-/* .atrium-door, .living-room-door{
-    position: absolute;
-}
-.exit-door, .key{
-    position: absolute;
-} */
 .atrium-door{
     position: absolute;
     top: 20px;

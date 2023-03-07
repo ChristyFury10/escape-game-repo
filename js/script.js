@@ -19,9 +19,10 @@ const $overlay = $("#overlay")
 const winModal = document.getElementById("success");
 const $gameOverText = $("#game-over-text");
 const $playAgain = $("#play-again");
-
-
-
+const $playerName = $(".player-name");
+const $timer = $("#timer");
+const $countdown = $("#countdown");
+let timeLeft = 10;
 
 //hide welcome screen on click of enter button
 $("#enterButton").on("click", function(evt){
@@ -29,19 +30,23 @@ $("#enterButton").on("click", function(evt){
   // $("#welcome-screen").addClass("hide");
   $("#welcome-screen").css("display", "none")
   toAtrium();
-  $messaegLine.text("You entered the house and the front door vanished behing you... now what?") 
+  $messaegLine.text("You entered the house and the front door vanished behind you... now what?"); 
+  let currentPlayer = $playerName.val();
+  console.log(currentPlayer)
 
   //gameStart();
 })
 
 //functions to change rooms
 const toAtrium = function() {
+  startTimer(60);
   console.log("entered atrium");
   $("#room").removeClass("front-of-house").addClass("atrium");
   $atriumKey.removeClass("hide").addClass("atrium-key");
   $atriumDoor.removeClass("hide").addClass("atrium-door");
   $inventoryBar.removeClass("hide");
-  $atriumLight.removeClass("hide")
+  $atriumLight.removeClass("hide");
+  $timer.removeClass("hide")
 
 }
 
@@ -172,6 +177,19 @@ $(".yellow").hover(
 
 
 
-
-
-
+// 60 second timeout for game over
+function startTimer(sec) {
+  let timeLeft = sec;
+  function updateTimer() {
+    if (timeLeft > 0) {
+      // console.log(timeLeft);
+      document.querySelector("#countdown").innerHTML = timeLeft
+      timeLeft--;
+      setTimeout(updateTimer, 1000);
+    } 
+    else {
+      toGameOver("You took too long and the toxic air was too much for your human lungs");
+    }
+  }
+  updateTimer();
+}

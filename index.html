@@ -18,8 +18,9 @@
         <h3 id = "goal"></h3>
     </div>
     <main>
-        
+       
         <div id = "room" class = "front-of-house">
+        <div id = "timer" class = "hide">Countdown:<span id = "countdown">30</span></div>
         <div class = "inventory-bar small hide"> Inventory</div>
         <div id = "overlay" class = "hide"></div>
         <div id = "open-inventory" class = "inventory-modal hide"> Your Inventory:
@@ -37,6 +38,7 @@
             <div id = "welcome-message">
                 There is an abandoned house in your<br> neighborhood, you have heard crazy rumors<br> over the years about why no one enters. <br>Do you dare to go inside?
             </div>
+            <input type="text" class="player-name" placeholder = "Leave Your Name Please">
             <button id = "enterButton" >Enter House</button>
         </div>
        </div>
@@ -49,7 +51,9 @@
           <p id = "game-over-text"></p>
           <button id = "play-again">PLAY AGAIN</button>
         </div>
+        
       </div>
+      
     </main>
 </body>
 </html>
