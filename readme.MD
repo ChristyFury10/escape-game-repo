@@ -1,6 +1,12 @@
 # escape Game
 Weocome to the escape room style game based in an abandoned warehouse. 
+
+## About
+- A game written with HTML5, CSS, and javascript
+- Uses JQuery elements
+
 ## How to Play
+- Click this link to play: https://christyfury10.github.io/escape-game-repo/ 
 - Once you enter the house you have to search for keys and then find the door that they unlock
 - Be careful not to click on the incorrect object or you might lose the game
 
