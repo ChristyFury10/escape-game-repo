@@ -83,8 +83,6 @@ const toGameOver = function(string){
 $inventoryBar.click(function(evt){
   $inventoryModal.toggleClass("hide");
   $overlay.toggleClass("hide");
-
-
 });
 
 // click event for atrium key, hide key on screen and add to inventory box and array, then call fucntion to start next room
@@ -108,7 +106,6 @@ $atriumDoor.click(function(evt){
   }
   else {
     $messaegLine.text("Hmm this door seems to be locked")
-
   }
 });
 
@@ -159,9 +156,6 @@ $atriumLight.click(function(){
     }
   })
 
-
-
-
 // show border on hover over key or door
 $(".yellow").hover(
   function() {
@@ -170,8 +164,6 @@ $(".yellow").hover(
     $(this).removeClass("hover");
   }
 );
-
-
 
 // 60 second timeout for game over
 function startTimer(sec) {
@@ -190,34 +182,3 @@ function startTimer(sec) {
 }
 
 
-// ******************************************************** //
-
-//setting up rooms object to allow backward movement to rooms (stretch goal)
-const rooms = {
-  welcomeScreen: {
-  },
-  atrium: {
-    items: {
-      key: "old-key",
-      door: "wooden-door",
-      falseDoor: "lamp"
-    },
-    movemets:{
-      toLivingRoom
-    }
-  },
-  livingRoom: {
-    items: {
-      key: "book",
-      door: "book-shelf",
-      falseDoor: "black-door"
-    },
-    movemets: {
-      toAtrium,
-      toGameOver
-    }
-  }};
-
-  const gameStart = function(){
-    
-  }

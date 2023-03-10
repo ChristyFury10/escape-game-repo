@@ -9,11 +9,10 @@
   }
 
 body {
-    background-color: var(--main-bg);
+    /* background-color: var(--main-bg); */
+    background-image: url("https://images.freecreatives.com/wp-content/uploads/2015/04/black_mamba_@2X.jpg");
     color: var(--top-text);
     font-family: helvetica;
-    /* display: flex;
-    justify-content: center; */
     flex-direction: column;
 }
 
@@ -38,7 +37,7 @@ body {
     position: relative;
     height: 500px;
     width: 750px;
-    border: 2px solid white;
+    border: 6px solid var(--main-bg);
     margin-left: auto;
     margin-right: auto;
 }
@@ -72,6 +71,13 @@ body {
     font-size: 1.5em;
     color: var(--text);
     border-radius: 10px;
+}
+input.player-name{
+    font-size: 1em;
+    background-color: var(--main-bg);
+}
+::placeholder{
+    color: gray;
 }
 #enterButton{
     color: var(--text);
@@ -205,55 +211,7 @@ li{
     width: 80%;
   }
 
-/* #message-box{
-    border: 2px solid white;
-    flex:1;
-    text-align: center;
-    margin-left: 20px;
-}
-#info{
-    border: 2px solid white
-} */
-/* main{
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-} */
 
-/* #room{
-    height:100px;
-    border: 2px solid white;
-    display: flex;
-    flex:4;
-    flex-direction: row;
-    justify-content: flex-end;
-    height: 600px;
-} */
-
-
-/* #placeholder{
-    flex:1;
-} */
-/* #inventory{
-    border: 2px solid white;
-    align-self: flex-end;
-    width: 20%;
-    background-color: rgb(15, 15, 34);
-} */
-
-/* .key{
-    border: 2px solid white;
-    align-self: flex-start;
-    position: relative;
-    top: 520px;
-    left: 110px
-    
-} */
-/* .door{
-    align-self: baseline;
-    left: 100px;
-    border: 2px solid white;
-} */
 /* Create classes for each room */
 .front-of-house{
     background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/dda3ab08-e8d7-4309-9cff-f44697356233/d2cn0ei-e66c048b-4d96-424b-a156-ad5772a8234d.jpg/v1/fill/w_900,h_676,q_75,strp/haunted_house_background_4_by_indigodeep_d2cn0ei-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Njc2IiwicGF0aCI6IlwvZlwvZGRhM2FiMDgtZThkNy00MzA5LTljZmYtZjQ0Njk3MzU2MjMzXC9kMmNuMGVpLWU2NmMwNDhiLTRkOTYtNDI0Yi1hMTU2LWFkNTc3MmE4MjM0ZC5qcGciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.UO-_4ZC5p2kQZUyA0jK3uEu-ONj_I_eq02xqHjiBgtQ");
@@ -274,4 +232,10 @@ li{
     background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/19515d73-46c8-4fa0-9b8a-93f485fdd8ea/d1wvvij-4d25ed0c-3e70-4ccc-a866-3b56443e431c.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE5NTE1ZDczLTQ2YzgtNGZhMC05YjhhLTkzZjQ4NWZkZDhlYVwvZDF3dnZpai00ZDI1ZWQwYy0zZTcwLTRjY2MtYTg2Ni0zYjU2NDQzZTQzMWMuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.wRRrJz3kFuH8HDzwCZgjakEm4WWEa_F9LupdmmhonAc");
     background-size: cover;
 
+}
+
+@media (max-width: 768px) {
+main{
+}
+    
 }
